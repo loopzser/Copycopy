@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Design Portal</title>
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #111111;
+            --accent: #ffcc00;
+            --text: #ffffff;
+            --border: #222;
+            --blue: #1a73e8;
+            --github: #333;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container { max-width: 500px; width: 100%; }
+
+        h2 { color: var(--accent); border-bottom: 2px solid var(--accent); padding-bottom: 8px; text-align: center; font-size: 1.2rem; margin-bottom: 25px; }
+
+        .box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .label { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; margin-bottom: 10px; display: block; letter-spacing: 1px; }
+
+        /* BUTTONS */
+        .btn-group { display: flex; gap: 10px; flex-direction: column; }
+        
+        .btn {
+            display: block;
+            background: var(--blue);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-github { background: var(--github); border: 1px solid #444; }
+        .btn-copy { background: transparent; border: 1px solid #444; color: #aaa; font-size: 0.8rem; padding: 8px; }
+
+        .btn:active { opacity: 0.8; transform: scale(0.98); }
+
+        /* TAP TO COPY BOX */
+        .copy-box {
+            background: #000;
+            border: 1px dashed #444;
+            padding: 18px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #ccc;
+            white-space: pre-wrap;
+        }
+
+        .status { text-align: center; font-size: 0.7rem; color: #00ff88; margin-top: 8px; display: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>DESIGN WORKFLOW</h2>
+
+    <div class="box">
+        <span class="label">Google Drive Folder:</span>
+        <div class="btn-group">
+            <a href="https://drive.google.com/drive/u/0/mobile/folders/1c8n7MPzv-2dEpHm2iSQ7TSpR29wmZ_Uy?usp=sharing" target="_blank" class="btn">
+                OPEN DRIVE (NEW TAB)
+            </a>
+            <button class="btn btn-copy" onclick="copyValue('https://drive.google.com/drive/u/0/mobile/folders/1c8n7MPzv-2dEpHm2iSQ7TSpR29wmZ_Uy?usp=sharing', 'driveMsg')">
+                COPY DRIVE LINK
+            </button>
+        </div>
+        <div id="driveMsg" class="status">✓ DRIVE LINK COPIED</div>
+    </div>
+
+    <div class="box">
+        <span class="label">GitHub Repository:</span>
+        <div class="btn-group">
+            <a href="https://github.com/loopzser/Copycopy" target="_blank" class="btn btn-github">
+                OPEN GITHUB (NEW TAB)
+            </a>
+            <button class="btn btn-copy" onclick="copyValue('https://github.com/loopzser/Copycopy', 'ghMsg')">
+                COPY GITHUB LINK
+            </button>
+        </div>
+        <div id="ghMsg" class="status">✓ GITHUB LINK COPIED</div>
+    </div>
+
+    <div class="box">
+        <span class="label">Tap to Copy Steps:</span>
+        <div class="copy-box" id="stepArea" onclick="copyValue(document.getElementById('stepArea').innerText, 'stepMsg')">
+(1) Yellow colour adjust background round 
+    (Colour dodge) 
+
+(2) Text shadow (Drop shadow)
+
+(3) Shoe colour high quality 
+    (Curves) Solid 
+
+(4) Small shoe blur (filter - blur - Motion blur)
+
+(5) Blur remove (second box click colour black (brush tool)
+    Opposite colour back
+        </div>
+        <div id="stepMsg" class="status">✓ STEPS COPIED</div>
+    </div>
+</div>
+
+<script>
+    function copyValue(text, msgId) {
+        navigator.clipboard.writeText(text).then(() => {
+            const msg = document.getElementById(msgId);
+            msg.style.display = 'block';
+            setTimeout(() => { msg.style.display = 'none'; }, 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
