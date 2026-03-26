@@ -1,0 +1,14 @@
+(1) grand colour red and light red
+     (7b0000) - f5090a
+  ( Box round tick) Reverse tick
+
+(2) Burger font name (Goblod)
+
+(3) Delicious font name ( Sweets Delight )
+
+(4) Off font name ( Arial regular)
+
+(5) Shadow blur round ( filter -blur- Gaussian blur )
+
+
+https://drive.google.com/drive/u/0/mobile/folders/1CNMRMthDV4E53BNZyQt9mh_zk4WnspUW?usp=sharing
